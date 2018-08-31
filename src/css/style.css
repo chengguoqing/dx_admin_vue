@@ -1,0 +1,66 @@
+body {
+    background: #47484B
+}
+
+.el-menu-vertical-demo {
+    background: transparent;
+    border-right: 1px solid #47484B;
+}
+
+.el-menu-item.is-active {
+    background: #fff;
+
+}
+
+.el-menu-item {
+    color: #fff
+}
+
+
+
+
+.avatar-uploader .el-upload {
+    border: 1px dashed #d9d9d9;
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.avatar-uploader .el-upload:hover {
+    border-color: #409EFF;
+}
+
+.avatar-uploader-icon {
+    font-size: 28px;
+    color: #8c939d;
+    width: 178px;
+    height: 178px;
+    line-height: 178px;
+    text-align: center;
+}
+
+.avatar {
+    width: 178px;
+    height: 178px;
+    display: block;
+}
+
+.df_jh_dert {
+    min-height: 980px;
+}
+
+.sd_jh_deet {
+    width: 640px;
+    margin: auto;
+    margin-top: 80px;
+}
+
+.dsf_deet {
+    margin-left: 40px;
+}
+
+.sdf_deeett button {
+    font-size: 16px;
+    padding: 10px 40px;
+}
