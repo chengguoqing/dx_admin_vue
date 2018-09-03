@@ -8,22 +8,36 @@ export default {
     install(Vue, options) {
         Vue.prototype.sd_iux = sd_iux
         Vue.prototype.ge_t = function (url, cn, xy) {
-            if (localStorage.token) {
-                cn.token = localStorage.token
+            if (!cn) {
+                cn = {}
             }
+            cn.token = localStorage.token
             this.$http.get(sd_iux + url, {
                 params: cn
             }).then((response) => {
-                xy(response.data)
+                if (response.data.code < 0) {
+                    alert(response.data.msg)
+                    this.hf("denglu")
+                    return
+                }
+                xy(response.data.data) 
             }, (response) => {
                 alert("请求失败");
             });
         }
 
         Vue.prototype.post = function (url, cn, xy) {
+            if (!cn) {
+                cn = {}
+            }
+            cn.token = localStorage.token
             this.$http.post(sd_iux + url, cn).then((response) => {
-
-                xy(response.data)
+                if (response.data.code < 0) {
+                    alert(response.data.msg)
+                    this.hf("denglu")
+                    return
+                }
+                xy(response.data.data, response.data)
 
             }, (response) => {
 
@@ -118,6 +132,15 @@ export default {
         Vue.filter("baoliu", function (t) {
             return parseFloat(t).toFixed(2)
         })
+        Vue.prototype.time_c = function (t) {
+            let time = new Date()
+            let Year = time.getFullYear(),
+                Month = time.getMonth() + 1,
+                Data = time.getDate() < 10 ? 0 + '' + time.getDate() : time.getDate()
+            Month < 10 ? Month = 0 + '' + Month : Month = Month
+            return Year + "-" + Month + "-" + Data
+        }
+
 
         Vue.prototype.getsign = function (datex) {
 

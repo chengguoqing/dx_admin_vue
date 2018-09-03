@@ -51,9 +51,14 @@ body {
 }
 
 .sd_jh_deet {
-    width: 640px;
-    margin: auto;
-    margin-top: 80px;
+ 
+    margin-top: 20px;
+}
+.sdf_deeett{
+     width: 500px 
+}
+.sd_jh_deet .el-input{
+    width: 500px
 }
 
 .dsf_deet {

@@ -10,13 +10,17 @@ import './css/style.css';
 import public_m from './public_m'
 import VueResource from 'vue-resource';
 Vue.config.productionTip = false
+import VueParticles from 'vue-particles'
+Vue.use(VueParticles)
 Vue.use(ElementUI);
 Vue.use(public_m);
 Vue.use(VueResource);
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
-  router,
-  components: { App },
-  template: '<App/>'
+    el: '#app',
+    router,
+    components: {
+        App
+    },
+    template: '<App/>'
 })

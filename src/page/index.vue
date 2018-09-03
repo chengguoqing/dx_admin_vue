@@ -9,7 +9,7 @@
     </el-aside>
   <el-main class="bgff">
 
-        <section class="df_jh_dert">
+        <section class="df_jh_dert"> 
 
             <p class="bbm pm15">店铺设置</p>
 
@@ -76,6 +76,11 @@
                   <el-form-item label="微信" prop="weixin">
     <el-input v-model="ruleForm.weixin"></el-input>
   </el-form-item>
+                 
+                            <el-form-item label="登录密码" prop="user_password">
+    <el-input v-model="ruleForm.user_password"></el-input>
+  </el-form-item>
+
 
 
 
@@ -123,6 +128,7 @@
                     file_list: [],
                     banner: "",
                     fengmian: "", //头像
+                    user_password:""//登录密码
                 },
                 rules: {
 
@@ -155,21 +161,28 @@
         methods: {
             submitForm(formName) { //表单提交
 
-                        var sd_err=[]
-                        this.ruleForm.file_list.map(a=>{
-                            sd_err.push(a.url)
-                        })
+                var sd_err = []
+                this.ruleForm.file_list.map(a => {
+                    sd_err.push(a.url)
+                })
+                let th=this
+                this.ruleForm.banner = sd_err.join(",")
+                this.post("set_user", this.ruleForm, function(data) {
+                    th.$message({
+                        message: "修改成功",
+                        type: 'success'
+                    });
 
-                        this.ruleForm.banner = sd_err.join(",")
-                        this.post("set_user", this.ruleForm, function(data) {})
 
-//                            this.$refs[formName].validate((valid) => {
-//                    if (valid) {
-//                    } else {
-//                        console.log('error submit!!');
-//                        return false;
-//                    }
-//                });
+                })
+
+                //                            this.$refs[formName].validate((valid) => {
+                //                    if (valid) {
+                //                    } else {
+                //                        console.log('error submit!!');
+                //                        return false;
+                //                    }
+                //                });
             },
             handleAvatarSuccess(data) {
                 this.ruleForm.fengmian = data.data
@@ -189,7 +202,17 @@
             }
         },
         mounted() {
-
+            let th = this
+            this.ge_t("get_user", {}, function(data) {
+                th.ruleForm = data[0]
+                th.ruleForm.file_list = []
+                data[0].banner.split(",").map(a => {
+                    th.ruleForm.file_list.push({
+                        url: a
+                    })
+                })
+                console.log(data);
+            })
         },
     }
 
