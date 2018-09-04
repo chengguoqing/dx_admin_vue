@@ -22,7 +22,7 @@ export default {
                 }
                 xy(response.data.data) 
             }, (response) => {
-                alert("请求失败");
+               this.hf("denglu")
             });
         }
 
@@ -40,7 +40,7 @@ export default {
                 xy(response.data.data, response.data)
 
             }, (response) => {
-
+this.hf("denglu")
             });
         }
 
