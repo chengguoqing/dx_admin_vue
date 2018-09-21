@@ -1,5 +1,5 @@
 import router from './router'
-var sd_iux = "http://localhost:8084/"
+var sd_iux = "https://www.duxinggj.com/new/"
 var sd_erttx = {}
 sd_erttx.user_uuid = '73955cb3-0c38-4b18-83d9-9180a7243ddd'
 sd_erttx.token = "952bca2e-1ee1-439e-bec8-2d2a07198859"
@@ -11,7 +11,7 @@ export default {
             if (!cn) {
                 cn = {}
             }
-            cn.token = localStorage.token
+            cn.token = localStorage.token||""
             this.$http.get(sd_iux + url, {
                 params: cn
             }).then((response) => {
@@ -30,7 +30,7 @@ export default {
             if (!cn) {
                 cn = {}
             }
-            cn.token = localStorage.token
+            cn.token = localStorage.token||""
             this.$http.post(sd_iux + url, cn).then((response) => {
                 if (response.data.code < 0) {
                     alert(response.data.msg)
@@ -134,6 +134,7 @@ this.hf("denglu")
         })
         Vue.prototype.time_c = function (t) {
             let time = new Date()
+            time.setTime(t)
             let Year = time.getFullYear(),
                 Month = time.getMonth() + 1,
                 Data = time.getDate() < 10 ? 0 + '' + time.getDate() : time.getDate()

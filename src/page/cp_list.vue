@@ -18,7 +18,6 @@
       :data="tableData"
       style="width: 100%">
       <el-table-column
-  
         label="添加时间"
         width="180">
           <template slot-scope="scope">
@@ -37,7 +36,9 @@
 
 <el-table-column fixed="right" label="操作">
     <template slot-scope="scope">
-      
+        <el-button type="text" @click="shezhi_e(scope.row.id,scope.$index,1)" v-if="scope.row.is_index==0">首页推荐</el-button>
+ <el-button type="text" @click="shezhi_e(scope.row.id,scope.$index,0)" v-else>取消首页推荐</el-button>
+
         <el-button type="text" @click="handleClick(scope.row.id)">编辑</el-button>
            <el-button type="text" @click="delect(scope.row.id,scope.$index)">删除</el-button>
       </template>
@@ -70,7 +71,7 @@
                 tableData: []
             }
         },
-        components: {
+        components: { 
             caidan
         },
         methods: {
@@ -93,9 +94,18 @@
 
                 });
 
+            },
+            shezhi_e(id, idx, idexer) { //首页推荐
 
-
-
+                let cps_e = {},
+                    th = this
+                cps_e.id = id
+                cps_e.type = 1
+                cps_e.is_index = idexer
+               
+                this.post("xiugai_cp_w", cps_e, function(data) {
+                    th.tableData[idx].is_index = idexer
+                })
             }
         },
         mounted() {

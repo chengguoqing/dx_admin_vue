@@ -21,7 +21,7 @@
                         <section>
              <el-upload
   class="avatar-uploader"
-  action="http://127.0.0.1:8084/up_img"
+  action="https://www.duxinggj.com/new/up_img"
   :show-file-list="false"
   :on-success="handleAvatarSuccess">
   <img v-if="this.ruleForm.fengmian" :src="this.ruleForm.fengmian" class="avatar">
@@ -49,6 +49,10 @@
                     <el-input v-model="ruleForm.jiner"></el-input>
                 </el-form-item>
             
+                      <el-form-item label="月销量">
+                    <el-input v-model="ruleForm.yuexiaoliang"></el-input>
+                </el-form-item>
+            
                    <el-form-item label="网盘地址" >
                     <el-input v-model="ruleForm.wangpan"></el-input>
                 </el-form-item>
@@ -57,7 +61,7 @@
                         <section>
 
                             <el-upload
-  action="http://127.0.0.1:8084/up_img"
+  action="https://www.duxinggj.com/new/up_img"
   list-type="picture-card"
   :on-preview="handlePictureCardPreview"
   :on-remove="handleRemove"
@@ -95,7 +99,7 @@
     </el-main>
 </el-container>
 
-
+ 
 
     </div>
         </template>
@@ -116,6 +120,7 @@
                     jiner: "", //金额
                     wangpan: "", //网盘地址
                     xiangqing: "",
+                    yuexiaoliang:"",
                     file_list: []
                 }
             }

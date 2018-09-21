@@ -21,7 +21,7 @@
                         <section>
 
                             <el-upload
-  action="http://127.0.0.1:8084/up_img"
+  action="https://www.duxinggj.com/new/up_img"
   list-type="picture-card"
   :on-preview="handlePictureCardPreview"
   :on-remove="handleRemove"
@@ -50,7 +50,7 @@
                         <section>
              <el-upload
   class="avatar-uploader"
-  action="http://127.0.0.1:8084/up_img"
+  action="https://www.duxinggj.com/new/up_img"
   :show-file-list="false"
   :on-success="handleAvatarSuccess">
   <img v-if="ruleForm.fengmian" :src="ruleForm.fengmian" class="avatar">
@@ -128,7 +128,7 @@
                     file_list: [],
                     banner: "",
                     fengmian: "", //头像
-                    user_password:""//登录密码
+                    user_password: "" //登录密码
                 },
                 rules: {
 
@@ -165,7 +165,7 @@
                 this.ruleForm.file_list.map(a => {
                     sd_err.push(a.url)
                 })
-                let th=this
+                let th = this
                 this.ruleForm.banner = sd_err.join(",")
                 this.post("set_user", this.ruleForm, function(data) {
                     th.$message({
@@ -190,6 +190,15 @@
 
             handleRemove(file, fileList) {
                 console.log(fileList);
+                this.ruleForm.file_list = []
+                fileList.map(a => {
+                    let da_der = {}
+                    da_der.url = a.url
+                    this.ruleForm.file_list.push(da_der)
+                })
+
+
+
             },
             handlePictureCardPreview(file) {
                 this.dialogImageUrl = file.url;

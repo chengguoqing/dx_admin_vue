@@ -21,6 +21,20 @@
         <span slot="title">产品列表</span>
       </el-menu-item>
               
+                 <el-menu-item index="3" @click="hf('chakanxuq')">
+        <i class="el-icon-menu"></i>
+        <span slot="title">查看需求</span>
+      </el-menu-item>
+              
+              
+                   <el-menu-item index="4" @click="hf('chakagmcp')">
+        <i class="el-icon-menu"></i>
+        <span slot="title">查看购买的产品</span>
+      </el-menu-item>
+              
+              
+              
+              
                <el-menu-item index="20" @click="tuichu_er">
         <i class="el-icon-menu"></i>
         <span slot="title">退出登录</span>
