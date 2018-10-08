@@ -8,6 +8,7 @@
 
     </el-aside>
   <el-main class="bgff">
+      <jilu></jilu>
            <section class="df_jh_dert">
                    <p class="bbm pm15">添加产品</p>
                    <section class="pd pt20">
@@ -106,6 +107,8 @@
 <script>
     import caidan from "../components/caidan"
     import shiti from "../shiti.js"
+        import jilu from "../components/jilu"
+    
     export default {
         data() {
             return {
@@ -126,7 +129,8 @@
             }
         },
         components: {
-            caidan
+            caidan,
+            jilu
         },
         methods: {
             submitForm() { //提交

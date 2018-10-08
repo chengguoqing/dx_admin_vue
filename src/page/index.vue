@@ -10,7 +10,9 @@
   <el-main class="bgff">
 
         <section class="df_jh_dert"> 
-
+<jilu></jilu>
+          
+            
             <p class="bbm pm15">店铺设置</p>
 
             <section class="pd pt20">
@@ -108,6 +110,7 @@
         </template>
 <script>
     import caidan from "../components/caidan"
+      import jilu from "../components/jilu"
     export default {
         data() {
             return {
@@ -156,7 +159,8 @@
             }
         },
         components: {
-            caidan
+            caidan,
+            jilu
         },
         methods: {
             submitForm(formName) { //表单提交
@@ -220,7 +224,7 @@
                         url: a
                     })
                 })
-                console.log(data);
+              
             })
         },
     }

@@ -8,6 +8,7 @@
 
     </el-aside>
   <el-main class="bgff">
+      <jilu></jilu>
            <section class="df_jh_dert">
                    <p class="bbm pm15">查看购买的产品</p>
                <el-table
@@ -69,6 +70,8 @@
 </template>
 <script>
     import caidan from "../components/caidan"
+     import jilu from "../components/jilu"
+    
     export default {
         data() {
             return {
@@ -76,7 +79,8 @@
             }
         },
         components: {
-            caidan
+            caidan,
+            jilu
         },
         methods: {
 

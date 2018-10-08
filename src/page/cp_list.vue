@@ -8,9 +8,10 @@
 
       <caidan xuzhong="2"></caidan>
 
-    </el-aside>
+    </el-aside> 
   <el-main class="bgff">
             <section class="df_jh_dert">
+                <jilu></jilu>
                    <p class="bbm pm15">产品列表</p>
                 
                 <section>
@@ -65,6 +66,8 @@
 </template>
 <script>
     import caidan from "../components/caidan"
+     import jilu from "../components/jilu"
+
     export default {
         data() {
             return {
@@ -72,7 +75,8 @@
             }
         },
         components: { 
-            caidan
+            caidan,
+            jilu
         },
         methods: {
             handleClick(id) { //编辑

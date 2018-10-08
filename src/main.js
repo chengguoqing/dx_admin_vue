@@ -7,6 +7,7 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import './css/base.css';
 import './css/style.css';
+import store from './store'
 import public_m from './public_m'
 import VueResource from 'vue-resource';
 Vue.config.productionTip = false
@@ -19,6 +20,7 @@ Vue.use(VueResource);
 new Vue({
     el: '#app',
     router,
+    store, //重点
     components: {
         App
     },
